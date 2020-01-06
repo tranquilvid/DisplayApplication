@@ -12,6 +12,7 @@
         android:background="#22C673"
         tools:context=".MainActivity">
         <LinearLayout
+            android:id="@+id/layout_login"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#021052"
@@ -22,14 +23,13 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
        <TextView
-           android:layout_width="wrap_content"
+           android:layout_width="50dp"
            android:layout_height="wrap_content"
            android:text="signup"
-           android:textSize="24sp"
+           android:textSize="15sp"
            android:rotation="90"
            android:layout_gravity="center"
            android:textColor="#FFFFFF"/>
-
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
