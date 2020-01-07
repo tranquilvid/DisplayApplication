@@ -18,18 +18,10 @@ for eg:for toast
 
 Like this we can build each managers.
 
+Implementing additional properties  simply  add the method before build.
+for eg:  
+  
+           ToastManager mbuilder = new ToastManager.Builder().setcontext(PresentContext).setMessage("hello       
+           user").setDuration(1).setDrawable(R.drawable.iconfinder_star_227558).setGravity((Gravity.FILL_HORIZONTAL)).build();
+
 We have Dialog manager for normal dialog and MaterialDialogManager for a Predefined materialdialog which can change its color images texts etc.
-
-
-   For showing and dismissing we have seperate methods.
-
-   for eg: managerobject.show(); here  for toast mbuilder.showToast();
-
-  Implementing additional properties  simply  add the method before build.
-  for eg:   
-              ToastManager mbuilder = new ToastManager.Builder().setcontext(PresentContext).setMessage("hello       
-              user").setDuration(1).setDrawable(R.drawable.iconfinder_star_227558).setGravity((Gravity.FILL_HORIZONTAL)).build();
-
-
-
-
