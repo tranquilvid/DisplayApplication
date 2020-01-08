@@ -1,4 +1,5 @@
 # DisplayApplication
+[![](https://jitpack.io/v/tranquilvid/DisplayApplication.svg)](https://jitpack.io/#tranquilvid/DisplayApplication)
 
 
 This Library is for various display functionality in android.
