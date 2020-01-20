@@ -3,6 +3,7 @@ package com.ndz.displayapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -65,9 +66,8 @@ public class SampleActivity extends AppCompatActivity {
     }
 
     public void onProgressClick(View view) {
-        ProgressManager mManager;
-        mManager = new ProgressManager.Builder().setmContext(this).setMaxLimit(100).setmMessage("Loading....").setmTitle("Api Call").setStyle(1).build();
-        mManager.showProgress();
+       Intent i=new Intent(SampleActivity.this,SampleProgressDialog.class);
+       startActivity(i);
 
     }
 }
