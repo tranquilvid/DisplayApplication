@@ -24,6 +24,7 @@ public class SampleProgressDialog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample_progress_dialog);
+
         mManager = new ProgressManager.Builder().setmContext(this).setMaxLimit(100).setmMessage("Loading....").setmTitle("Api Call").setStyle(1).build();
 
         final DownloadTask downloadTask = new DownloadTask(SampleProgressDialog.this);
