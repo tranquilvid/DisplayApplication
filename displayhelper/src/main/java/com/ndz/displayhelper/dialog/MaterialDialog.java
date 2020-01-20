@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +20,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.ndz.displayhelper.R;
+
+import java.util.Objects;
 
 import static com.ndz.displayhelper.ConstantValues.BUTTON_COLOR;
 import static com.ndz.displayhelper.ConstantValues.BUTTON_TEXT;
@@ -36,20 +40,20 @@ import static com.ndz.displayhelper.ConstantValues.LAYOUT_BACKGROUND;
  * A simple {@link Fragment} subclass.
  */
 public class MaterialDialog extends DialogFragment {
-    int mCirclebg;
-    int mImageicon;
-    int mbuttoncolor;
-    int mlayoutcolor;
-    String mTitlevalue;
-    String mDatavalue;
-    String mbtntext;
+    private int mCirclebg;
+    private int mImageicon;
+    private int mButtonColor;
+    private int mlayoutcolor;
+    private String mTitlevalue;
+    private String mDatavalue;
+    private String mbtntext;
 
 
     public MaterialDialog() {
         // Required empty public constructor
     }
 
-    public static MaterialDialog getinstance(int ivBackground, int imageIcon, String title, String datas, String buttonText, int buttoncolor, int layoutBackground) {
+    static MaterialDialog getInstance(int ivBackground, int imageIcon, String title, String datas, String buttonText, int buttoncolor, int layoutBackground) {
         MaterialDialog materialDialog = new MaterialDialog();
         Bundle bundle = new Bundle();
         bundle.putInt(IMAGE_BACKGROUND, ivBackground);
@@ -63,15 +67,16 @@ public class MaterialDialog extends DialogFragment {
         return materialDialog;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onResume() {
         super.onResume();
 
         try {
-            WindowManager.LayoutParams mLayoutParams = getDialog().getWindow().getAttributes();
+            WindowManager.LayoutParams mLayoutParams = Objects.requireNonNull(Objects.requireNonNull(getDialog()).getWindow()).getAttributes();
             mLayoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
             mLayoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            getDialog().getWindow().setAttributes(mLayoutParams);
+            Objects.requireNonNull(getDialog().getWindow()).setAttributes(mLayoutParams);
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,7 +107,7 @@ public class MaterialDialog extends DialogFragment {
 
             }
             if (b.getInt(BUTTON_COLOR) != 0) {
-                mbuttoncolor = b.getInt(BUTTON_COLOR);
+                mButtonColor = b.getInt(BUTTON_COLOR);
 
             }
             if (b.getInt(LAYOUT_BACKGROUND) != 0) {
@@ -159,8 +164,8 @@ public class MaterialDialog extends DialogFragment {
         if (mDatavalue != null && !mDatavalue.isEmpty()) {
             mData.setText(mDatavalue);
         }
-        if (mbuttoncolor != 0) {
-            mOkButton.setBackgroundColor(mbuttoncolor);
+        if (mButtonColor != 0) {
+            mOkButton.setBackgroundColor(mButtonColor);
         }
         if (mlayoutcolor != 0) {
             mview.setBackgroundColor(mlayoutcolor);

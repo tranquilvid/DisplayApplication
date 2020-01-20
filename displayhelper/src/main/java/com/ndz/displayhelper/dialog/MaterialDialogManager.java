@@ -3,7 +3,7 @@ package com.ndz.displayhelper.dialog;
 
 import androidx.fragment.app.FragmentManager;
 
-import static com.ndz.displayhelper.dialog.MaterialDialog.getinstance;
+import static com.ndz.displayhelper.dialog.MaterialDialog.getInstance;
 
 /**
  * Created by Vrindak on 18/12/19.
@@ -29,9 +29,15 @@ public class MaterialDialogManager {
 
     public void showDialog(FragmentManager mFragmentManager) {
 
-        MaterialDialog mdialog = getinstance(ivBackground, imageIcon, title, datas, buttonText, buttoncolor, layoutBackground);
+        MaterialDialog mdialog = getInstance(ivBackground, imageIcon, title, datas, buttonText, buttoncolor, layoutBackground);
 
         mdialog.show(mFragmentManager, "DialogFragment");
+
+    }
+
+    public interface MaterialDialogListenerClick {
+        void onButtonClick();
+
 
     }
 
@@ -44,6 +50,12 @@ public class MaterialDialogManager {
         private String buttonText;
         private int buttoncolor;
         private int layoutBackground;
+        MaterialDialogListenerClick mButtonclickListener;
+
+        public Builder setmButtonclickListener(MaterialDialogListenerClick mButtonclickListener) {
+            this.mButtonclickListener = mButtonclickListener;
+            return this;
+        }
 
         public Builder setIvBackground(int ivBackground) {
 

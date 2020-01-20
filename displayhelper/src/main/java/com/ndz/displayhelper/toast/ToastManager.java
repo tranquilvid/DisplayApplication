@@ -51,7 +51,7 @@ public class ToastManager {
             LayoutInflater inflater = (LayoutInflater) mcontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View mView = inflater.inflate(R.layout.item_toast_layout, null);
             ImageView imageView = (ImageView) mView.findViewById(R.id.iv_toast);
-            imageView.setBackgroundResource(drawable);
+            imageView.setImageResource(drawable);
             TextView mTextview = mView.findViewById(R.id.tv_toast_message);
             mTextview.setText(message);
             mToast.setGravity(gravity, 0, 0);
@@ -72,7 +72,7 @@ public class ToastManager {
 
             View mView = inflater.inflate(R.layout.item_toast_layout, null);
             ImageView imageView = (ImageView) mView.findViewById(R.id.iv_toast);
-            imageView.setBackgroundResource(drawable);
+            imageView.setImageResource(drawable);
             TextView mTextview = mView.findViewById(R.id.tv_toast_message);
             mTextview.setText(message);
             mToast.setGravity(gravity, 0, 0);
