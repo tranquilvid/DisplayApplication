@@ -16,6 +16,7 @@ public class MaterialDialogManager {
     private String buttonText;
     private int buttoncolor;
     private int layoutBackground;
+    private MaterialDialogListenerClick mListener;
 
     public MaterialDialogManager(Builder builder) {
         this.ivBackground = builder.ivBackground;
@@ -25,10 +26,11 @@ public class MaterialDialogManager {
         this.buttonText = builder.buttonText;
         this.buttoncolor = builder.buttoncolor;
         this.layoutBackground = builder.layoutBackground;
+        this.mListener=builder.mButtonclickListener;
     }
 
     public void showDialog(FragmentManager mFragmentManager) {
-
+        MaterialDialog mDialog=new MaterialDialog(mListener);
         MaterialDialog mdialog = getInstance(ivBackground, imageIcon, title, datas, buttonText, buttoncolor, layoutBackground);
 
         mdialog.show(mFragmentManager, "DialogFragment");

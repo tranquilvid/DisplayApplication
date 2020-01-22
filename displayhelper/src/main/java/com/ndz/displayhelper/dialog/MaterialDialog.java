@@ -47,14 +47,22 @@ public class MaterialDialog extends DialogFragment {
     private String mTitlevalue;
     private String mDatavalue;
     private String mbtntext;
+    private MaterialDialogManager.MaterialDialogListenerClick mListenerClick;
 
+
+
+    public MaterialDialog(MaterialDialogManager.MaterialDialogListenerClick mlistener) {
+        // Required empty public constructor
+        mListenerClick=mlistener;
+
+    }
 
     public MaterialDialog() {
-        // Required empty public constructor
+
     }
 
     static MaterialDialog getInstance(int ivBackground, int imageIcon, String title, String datas, String buttonText, int buttoncolor, int layoutBackground) {
-        MaterialDialog materialDialog = new MaterialDialog();
+        MaterialDialog  materialDialog = new MaterialDialog();
         Bundle bundle = new Bundle();
         bundle.putInt(IMAGE_BACKGROUND, ivBackground);
         bundle.putInt(IMAGE_ICON, imageIcon);
@@ -64,6 +72,7 @@ public class MaterialDialog extends DialogFragment {
         bundle.putInt(BUTTON_COLOR, buttoncolor);
         bundle.putInt(LAYOUT_BACKGROUND, layoutBackground);
         materialDialog.setArguments(bundle);
+
         return materialDialog;
     }
 
@@ -173,6 +182,13 @@ public class MaterialDialog extends DialogFragment {
         }
         if (mbtntext != null) {
             mOkButton.setText(mbtntext);
+
+            mOkButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   mListenerClick.onButtonClick();
+                }
+            });
         }
 
 
