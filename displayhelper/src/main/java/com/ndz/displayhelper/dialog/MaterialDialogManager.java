@@ -30,8 +30,8 @@ public class MaterialDialogManager {
     }
 
     public void showDialog(FragmentManager mFragmentManager) {
-        MaterialDialog mDialog=new MaterialDialog(mListener);
-        MaterialDialog mdialog = getInstance(ivBackground, imageIcon, title, datas, buttonText, buttoncolor, layoutBackground);
+
+        MaterialDialog mdialog = getInstance(ivBackground, imageIcon, title, datas, buttonText, buttoncolor, layoutBackground,mListener);
 
         mdialog.show(mFragmentManager, "DialogFragment");
 

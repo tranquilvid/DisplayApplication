@@ -24,6 +24,9 @@ public class ToastManager {
     private int gravity;
     private int color;
     private int drawable;
+    private int offsetx;
+    private int offsety;
+    private int background;
 
 
     private ToastManager(Builder mBuilder) {
@@ -33,6 +36,8 @@ public class ToastManager {
         gravity = mBuilder.gravity;
         color = mBuilder.color;
         drawable = mBuilder.drawable;
+        offsetx=mBuilder.offsetx;
+        offsety=mBuilder.offsety;
 
     }
 
@@ -42,32 +47,32 @@ public class ToastManager {
 
         if (color == 0 && drawable == 0) {
             Toast mToast = makeText(mcontext, message, duration);
-            mToast.setGravity(gravity, 0, 0);
+            mToast.setGravity(gravity, offsetx, offsety);
             mToast.show();
 
         } else if (color != 0 && drawable != 0) {
             Toast mToast = new Toast(mcontext);
-            mToast.setGravity(gravity, 0, 0);
+            mToast.setGravity(gravity, offsetx, offsety);
             LayoutInflater inflater = (LayoutInflater) mcontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View mView = inflater.inflate(R.layout.item_toast_layout, null);
             ImageView imageView = (ImageView) mView.findViewById(R.id.iv_toast);
             imageView.setImageResource(drawable);
             TextView mTextview = mView.findViewById(R.id.tv_toast_message);
             mTextview.setText(message);
-            mToast.setGravity(gravity, 0, 0);
+            mToast.setGravity(gravity, offsetx, offsety);
             mToast.setDuration(duration);
             mView.setBackgroundColor(color);
             mToast.setView(mView);
             mToast.show();
         } else if (color != 0 && drawable == 0) {
             Toast mToast = makeText(mcontext, message, duration);
-            mToast.setGravity(gravity, 0, 0);
+            mToast.setGravity(gravity, offsetx, offsety);
             View mView = mToast.getView();
             mView.setBackgroundColor(color);
             mToast.show();
         } else if (drawable != 0 && color == 0) {
             Toast mToast = new Toast(mcontext);
-            mToast.setGravity(gravity, 0, 0);
+            mToast.setGravity(gravity, offsetx, offsety);
             LayoutInflater inflater = (LayoutInflater) mcontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View mView = inflater.inflate(R.layout.item_toast_layout, null);
@@ -75,7 +80,7 @@ public class ToastManager {
             imageView.setImageResource(drawable);
             TextView mTextview = mView.findViewById(R.id.tv_toast_message);
             mTextview.setText(message);
-            mToast.setGravity(gravity, 0, 0);
+            mToast.setGravity(gravity, offsetx, offsety);
             mToast.setDuration(duration);
             mToast.setView(mView);
             mToast.show();
@@ -91,6 +96,18 @@ public class ToastManager {
         private int gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
         private int color;
         private int drawable;
+        private int offsetx=0;
+        private int offsety=0;
+
+        public Builder setOffsetx(int offsetx) {
+            this.offsetx = offsetx;
+            return this;
+        }
+
+        public Builder setOffsety(int offsety) {
+            this.offsety = offsety;
+            return this;
+        }
 
         public Builder setcontext(Context mcontext) {
             this.mcontext = mcontext;

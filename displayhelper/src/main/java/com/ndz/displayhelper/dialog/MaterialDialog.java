@@ -51,17 +51,7 @@ public class MaterialDialog extends DialogFragment {
 
 
 
-    public MaterialDialog(MaterialDialogManager.MaterialDialogListenerClick mlistener) {
-        // Required empty public constructor
-        mListenerClick=mlistener;
-
-    }
-
-    public MaterialDialog() {
-
-    }
-
-    static MaterialDialog getInstance(int ivBackground, int imageIcon, String title, String datas, String buttonText, int buttoncolor, int layoutBackground) {
+    static MaterialDialog getInstance(int ivBackground, int imageIcon, String title, String datas, String buttonText, int buttoncolor, int layoutBackground, MaterialDialogManager.MaterialDialogListenerClick mListener) {
         MaterialDialog  materialDialog = new MaterialDialog();
         Bundle bundle = new Bundle();
         bundle.putInt(IMAGE_BACKGROUND, ivBackground);
@@ -71,6 +61,7 @@ public class MaterialDialog extends DialogFragment {
         bundle.putString(BUTTON_TEXT, buttonText);
         bundle.putInt(BUTTON_COLOR, buttoncolor);
         bundle.putInt(LAYOUT_BACKGROUND, layoutBackground);
+        materialDialog.mListenerClick=mListener;
         materialDialog.setArguments(bundle);
 
         return materialDialog;
@@ -99,6 +90,8 @@ public class MaterialDialog extends DialogFragment {
         if (mDialog.getWindow() != null) {
             mDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         }
+
+
         return mDialog;
 
     }
