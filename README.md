@@ -11,7 +11,7 @@ we can implements the library in two ways
 1) aar file : add aar file as module dependency
 2) implementing : implements in gradle.
 
-'''*implementation 'com.github.tranquilvid:DisplayApplication:1.2.0'*'''
+*implementation 'com.github.tranquilvid:DisplayApplication:1.2.0'*
 
 For using each display options we have manager class :
 
