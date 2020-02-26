@@ -40,6 +40,11 @@ public class SampleActivity extends AppCompatActivity {
                 ToastManager mbuilder = new ToastManager.Builder().setcontext(SampleActivity.this).setMessage("Positive Button Click").setDuration(1).build();
                 mbuilder.showToast();
             }
+        }).setNegativeButton("cancel", new DialogManager.DialogListenerClick() {
+            @Override
+            public void onButtonClick() {
+
+            }
         }).setMessage("My Alert Dialog").build();
         mdialogbuilder.showDialog();
     }
