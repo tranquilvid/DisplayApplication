@@ -1,23 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.tranquilvid'
-
-publish {
-
-    def groupProjectID = 'com.ndz.displayapplication'
-    def artifactProjectID = 'displayapplication'
-    def publishVersionID = '0.1.0'
-
-    /*userOrg ='tranquilvid'
-    repoName ='DisplayHelper'
-    groupId = groupProjectID
-    artifactId = artifactProjectID
-    publishVersion = publishVersionID
-    desc = 'Android library for displaying data based on JSON configuration fetched from server. With this library, you can kiss goodbye to string.xml, dimen.xml, arrays.xml. Keep all your string/integer/array config in one file. The library will automatically fetch the data from the url you provide.'
-    website = 'https://github.com/anitaa1990/Optimize'*/
-}
-
 
 android {
     compileSdkVersion 29
@@ -51,11 +34,4 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-
-/*//for publish in jcenter
-    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'*/
 }
-/*apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'*/
