@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.tranquilvid'
 
 publish {
 
@@ -15,7 +17,6 @@ publish {
     desc = 'Android library for displaying data based on JSON configuration fetched from server. With this library, you can kiss goodbye to string.xml, dimen.xml, arrays.xml. Keep all your string/integer/array config in one file. The library will automatically fetch the data from the url you provide.'
     website = 'https://github.com/anitaa1990/Optimize'*/
 }
-
 
 
 android {
