@@ -46,7 +46,7 @@ public class SampleActivity extends AppCompatActivity {
 
     public void onMaterialdialogClick(View view) {
         FragmentManager mFragmentManager=getSupportFragmentManager();
-        MaterialDialogManager mDialogManager=new MaterialDialogManager.Builder().setButtoncolor(Color.parseColor("#bb6dc7")).setButtonText("YES").setTitle("Success").setDatas("Material Dialog successfully shown").setIvBackground(Color.parseColor("#bb6dc7")).setmButtonclickListener(new MaterialDialogManager.MaterialDialogListenerClick() {
+        MaterialDialogManager mDialogManager=new MaterialDialogManager.Builder().setButtoncolor(Color.parseColor("#64C128")).setButtonText("YES").setTitle("Success").setDatas("Material Dialog successfully shown").setIvBackground(Color.parseColor("#64C128")).setmButtonclickListener(new MaterialDialogManager.MaterialDialogListenerClick() {
             @Override
             public void onButtonClick() {
                Toast.makeText(SampleActivity.this,"Ok Click",Toast.LENGTH_SHORT).show();
